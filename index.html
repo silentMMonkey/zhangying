@@ -1,32 +1,103 @@
-<!DOCTYPE html>
-<html>    
-<head>    
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
-<title>冬遇</title>
-</head>    
-<body>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5浪漫爱心表白动画</title>
+
 <style type="text/css">
-body {
-	margin: 0;
-	//此处插入背景图片链接
-	background-image: url('https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2595486065,3078397786&fm=26&gp=0.jpg');  
-	background-repeat:repeat-y;
-	//background-position:center;
-  	background-size:100%,100%;
-	background-color: #22C3AA;
-	font-size:35px;
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
 }
 </style>
-<p>
-<font color="#F08080">
-<em>亲爱的XXXX：</em><br />
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp嫁给我，做我的妻子。或许不是一个漂亮的女孩子，但是我可以向你保证，在我眼里，你将是这个世界上最美丽的新娘。而且在结婚以后，你在我眼里，依然是这个世界上最美丽的妇人。我希望在你八十岁的时候，俯在你的耳边，告诉你：“感谢上帝，他赐给我一个世界上最美丽最可爱只是没有了牙齿的老太婆。”<br />
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp结婚以后，如果你依然希望做你的事业，我将尽我的全力去支持你，并且努力承担我应做的家务。我向你坦白，我分不清黄豆芽和绿豆芽，而且我会把厨房搞得一塌糊涂，但是我将尽力照着《厨房美食》上的话去做，努力把自己培养成为一个伟大的厨子。<br />
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp和我生一个女儿。尽管这有些违反“生男生女都一样”的基本原则。可这是我唯一的苛求。我希望可以和我们的孩子一起在你四十岁生日时在你的生日蛋糕上只插三十六根蜡烛。而且，我相信咱们的孩子会一改往日的调皮，一脸庄严像个小大人似的对你说：“天啊，老妈，你看上去只有三十岁，我的同学们都说你更像我的姐姐！”<br />
-	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp愿你：<br />
-历经山河，仍觉得人间值得<br />
-<div align="right">你的XXXX&nbsp&nbsp&nbsp&nbsp<br />2021.02.05&nbsp&nbsp</div>
-</font>
-</p>
-</body>    
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments">*2013—02-14,</span><br />
+			<span class="space"/><span class="comments">*2013-02-28.</span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			Boy name = <span class="keyword">Mr</span> YU<br />
+			Girl name = <span class="keyword">Mrs</span> ZHANG<br />
+			<span class="comments">// Fall in love river. </span><br />
+			The boy loves the girl;<br />
+			<span class="comments">// They love each other.</span><br />
+			The girl loves the boy;<br />
+			<span class="comments">// AS time goes on.</span><br />
+			The boy can not be separated from the girl;<br />
+			<span class="comments">// At the same time.</span><br />
+			The girl can not be separated from the boy;<br />
+			<span class="comments">// Both wind and snow all over the sky.</span><br />
+			<span class="comments">// Whether on foot or 5 kilometers.</span><br />
+			<span class="keyword">The boy</span> is very <span class="keyword">happy</span>;<br />
+			<span class="keyword">The girl</span> is also very <span class="keyword">happy</span>;<br />
+			<span class="placeholder"/><span class="comments">// Whether it is right now</span><br />
+			<span class="placeholder"/><span class="comments">// Still in the distant future.</span><br />
+			<span class="placeholder"/>The boy has but one dream;<br />
+			<span class="comments">// The boy hopes the girl would still be happy.</span><br />
+			<br>
+			<br>
+			I want to say:<br />
+			Baby, I love you forever;<br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					亲爱的，这是我们相爱在一起的时光。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					爱你直到永永远远。<br/>
+					<div class="signature">- 李先生</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2020, 12, 06);
+together.setHours(20);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+</body>
 </html>
